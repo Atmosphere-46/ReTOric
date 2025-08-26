@@ -3,7 +3,7 @@ Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fi
 
 
 Cette interface permet de lire des programmes au format TAP contenus dans une carte micro SD en utilisant le port cassette
-et avec les mêmes fonctions CLOAD"" dont disposent les micro ordinateurs Oric 1 et Atmos.
+et les fonctions CLOAD"".
 L'interface offre également la possibilité de sauvegarder les programmes de l'Oric sur la carte SD, au format TAP en utilisant
 simplement la fonction CSAVE"".
 
@@ -22,17 +22,21 @@ nécessaires au chargement correct de certains programmes.
 
 Pour lire un programme présent sur la carte SD, deux méthodes sont disponibles :
 
-1 ère méthode : utiliser le directory, c'est la méthode la plus simple.
+1 ère méthode :
+utiliser le directory, c'est la méthode la plus simple.
 
-2 ème méthode : envoyer une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
+2 ème méthode :
+envoyer une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
 
 
 Ces méthodes sont les suivantes :
 
 Méthode 1 :
+
 Accès au directory : taper CLOAD"" ou CLOAD"DIR"  (attention cela écrase le prg présent en mémoire !)
 Dans le directory il suffit de taper le nom du programme (avec ou sans l'extension .TAP) et valider pour 
 le chargement du programme.
+
 Seuls les fichiers de 8 lettres maxi sont affichés.
 Il est possible d'utiliser les fonctions ">" pour changer de page
 
@@ -43,6 +47,7 @@ Il est possible d'utiliser les fonctions ">" pour changer de page
 "nom du prg.TAPxx"   (xx est le numéro de la séquence à lire)
 
 Méthode 2 :
+
 Envoyer le nom du programme à charger avec CSAVE"?nom du prg"
 Pour cela assurez vous que la mémoire de l'Oric soit vide, sinon le transfert de la commande sera plus long...
 
@@ -96,20 +101,27 @@ Menu Configuration (SET) :
 
 Pour modifier la configuration de l'interface vous pouvez accéder au menu de configuration
 en tapant simplement CLOAD"SET"
+
 L'interface va charger le programme de configuration dans la mémoire de l'Oric (attention cela écrase le prg présent !)
 Il est possible de choisir la compatibilité Oric 1 (si vous utilisez un Oric 1 seul ce mode est compatible) ou Atmos,
 la vitesse de transfert, les bits de stop en vitesse F16 (certains jeux ne se chargent qu'avec 9 bits de stop),
 la langue (Français / Anglais) et le niveau du haut parleur de l'Oric.
+
 Les options de Wifi et Bluetooth ne sont pas encore disponibles.
 
 Il est également possible de sélectionner ces paramètres à l'aide du bouton en haut à droite de l'interface.
+
 (appuy court : Niveau du son, appuy plus long : Compatibilité, appuy plus de 5 secondes : Langue)
 Le bouton du bas permet de redémarrer l'interface (ne pas utiliser si l'interface est en train d'écrire sur la carte SD !)
 
 Il est fortement recommandé de ne pas sortir ou insérer la carte SD quand l'interface est sous tension.
+
 Ne pas débrancher l'alimentation USB-C si l'intrface est en cours d'écriture ou de réception d'un programme.
+
 De même certaines actions sur les fichiers de la carte avec un oridinateur peuvent rendre illisible la carte par l'interface.
+
 Copiez de préférence vos fichiers importants sur un autre support, le mode SPI de l'esp32 peut être capricieux par moments...
+
 Lors du démarrage de l'interface attendez la fin de l'initialisation avant d'utiliser CLOAD ou CSAVE sur l'Oric.
 En cours de lecture si vous souhaitez arrêter le transfert il suffit de faire un appuy court sur le bouton en haut à droite.
 Il peut arriver que l'ordre de chargement du directory soit perturbé par certaines actions précédentes, dans ce cas si vous 
