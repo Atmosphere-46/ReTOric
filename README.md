@@ -34,17 +34,16 @@ Ces méthodes sont les suivantes :
 Méthode 1 :
 
 Accès au directory : taper CLOAD"" ou CLOAD"DIR"  (attention cela écrase le prg présent en mémoire !)
-Dans le directory il suffit de taper le nom du programme (avec ou sans l'extension .TAP) et valider pour 
-le chargement du programme.
+Pour charger un programme il suffit de taper le nom du programme (avec ou sans l'extension .TAP) et valider.
 
 Seuls les fichiers de 8 lettres maxi sont affichés.
 Il est possible d'utiliser les fonctions ">" pour changer de page
 
-"#", "#|" et "#["
+"#", "#|" et "#[" (voir descroption plus bas)
 
-"/" et "/nom du répertoire"
+"/" et "/nom du répertoire" (pour changer de répertoire)
 
-"nom du prg.TAPxx"   (xx est le numéro de la séquence à lire)
+"nom du prg.TAPxx"   (xx est le numéro de la séquence à lire) pour lire la séquence choisie
 
 Méthode 2 :
 
@@ -88,7 +87,7 @@ Les commandes disponibles sont les suivantes :
 Il est possible de lire un fichier contenant plusieurs séquences :
 
 Pour cela ouvrez le fichier suivant la méthode 1 ou 2, si il contient plusieurs séquences l'interface va lire la première
-séquence et se mettra en PAUSE.
+séquence et se mettra en PAUSE à la fin de la séquence.
 
 Si vous n'avez pas quitté la pause vous pouvez lire les séquences suivantes en tapant simplement CLOAD""
 
@@ -105,7 +104,7 @@ en tapant simplement CLOAD"SET"
 L'interface va charger le programme de configuration dans la mémoire de l'Oric (attention cela écrase le prg présent !)
 Il est possible de choisir la compatibilité Oric 1 (si vous utilisez un Oric 1 seul ce mode est compatible) ou Atmos,
 la vitesse de transfert, les bits de stop en vitesse F16 (certains jeux ne se chargent qu'avec 9 bits de stop),
-la langue (Français / Anglais) et le niveau du haut parleur de l'Oric.
+la langue (Français / Anglais) et le niveau de volume du haut parleur de l'Oric.
 
 Les options de Wifi et Bluetooth ne sont pas encore disponibles.
 
