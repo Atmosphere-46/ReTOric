@@ -50,13 +50,15 @@ On peut utiliser les fonctions siovantes :
 
 Méthode 2 :
 
-Envoyer le nom du programme à charger avec CSAVE"?nom du prg"
-Pour cela assurez vous que la mémoire de l'Oric soit vide, sinon le transfert de la commande sera plus long...
+On envooie en premier le nom du programme à charger avec CSAVE"?nom du prg"
 
-Tapez CSAVE"?nom du programme" et validez. 
+Pour cela il est préférable de s'assurer que la mémoire de l'Oric soit vide, sinon le transfert de la commande sera plus long...
+
+On tape CSAVE"?nom du programme" et on valide. 
+
 (la fonction "?" indique à l'interface qu'on demande à charger un programme)
 
-Tapez ensuite CLOAD"" et l'interface va envoyer le programme sur le port cassette.
+On tape ensuite CLOAD"" et l'interface va envoyer le programme sur le port cassette.
 
 * Une astuce, vous pouvez utiliser par exemple CSAVE"?nom du prg",A"adr",E"adr+1" si vous voulez
 racourcir le temps d'envoi de la commande. (adr peut être une adresse mémoire quelconque)
@@ -64,8 +66,10 @@ racourcir le temps d'envoi de la commande. (adr peut être une adresse mémoire 
 Pour Sauvegarder un programme présent dans la mémoire de l'Oric :
 
 taper CSAVE"nom du prg" ou CSAVE"nom du prg.ext" (ext étant l'extension de votre choix)
+
 si on ne précise pas d'extension, ".TAP" sera automatiquement ajouté au nom du programme.
-Le nom du programme ne doit pas commencer par les caractères suivants 
+
+Le nom du programme doit comporter 8 lettres au maximum et ne doit pas commencer par les caractères suivants 
 
 (ces caractères sont utilisés pour les commandes) : "?", "#", ">", "+", "%" et "/"
 
