@@ -23,13 +23,13 @@ nécessaires au chargement correct de certains programmes.
 Pour lire un programme présent sur la carte SD, deux méthodes sont disponibles :
 
 1 ère méthode :
-utiliser le directory, c'est la méthode la plus simple.
+On utilise le directory, c'est la méthode la plus simple.
 
 2 ème méthode :
-envoyer une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
+On envoye une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
 
 
-Ces méthodes sont les suivantes :
+Comment ça marche ?
 
 Méthode 1 :
 
