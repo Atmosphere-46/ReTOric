@@ -86,7 +86,7 @@ Les commandes disponibles sont les suivantes :
 
 "#[" Créer un répertoire : CSAVE"#[nom du répertoire" (le répertoire sera créé dans le répertoire actuel)
 
-"#" Demande d'info sur un fichier TAP : CSAVE"#nom du prg.TAP" (affiche les séquences ainsi que leur tailles en octets)
+"#" Demande d'info sur un fichier TAP : CSAVE"#nom du prg.TAP" (affiche les séquences ainsi que leur taille en octets)
 (l'extension est obligatoire)
 
 "/nom du répertoire" Changement de répertoire : CSAVE"/nom du repertoire"   (utiliser "/" pour revenir au répertoire racine)
