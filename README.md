@@ -37,7 +37,10 @@ Accès au directory : taper CLOAD"" ou CLOAD"DIR"  (attention cela écrase le pr
 Pour charger un programme il suffit de taper le nom du programme (avec ou sans l'extension .TAP) et valider.
 
 Seuls les fichiers de 8 lettres maxi sont affichés.
-Il est possible d'utiliser les fonctions ">" pour changer de page
+
+On peut utiliser les fonctions siovantes :
+
+">" pour changer de page
 
 "#", "#|" et "#[" (voir descroption plus bas)
 
