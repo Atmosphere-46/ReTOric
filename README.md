@@ -1,9 +1,6 @@
-ReTOric-mini
+ReTOric
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
-Une version complète ReTOric dispose des mêmes fonctions mais avec en plus un joystick qui permet
-de naviguer dans le directory via l'écran Oled et sélectionner le programme à charger. La position du joystick
-peut aussi être lue par l'Oric (analogique ou numérique) pour être intégré dans des jeux ou applications divers.
-
+Une version mini de ReTOric est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
 Cette interface permet de lire des programmes au format TAP contenus dans une carte micro SD en utilisant le port cassette
 et les fonctions CLOAD"".
@@ -23,7 +20,7 @@ en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
 
-Pour lire un programme présent sur la carte SD, trois méthodes sont disponibles :
+Pour lire un programme présent sur la carte SD, quatre méthodes sont disponibles :
 
 1 ère méthode :
 On utilise le directory, c'est la méthode la plus simple.
@@ -31,9 +28,12 @@ On utilise le directory, c'est la méthode la plus simple.
 2 ème méthode :
 On envoye une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
 
-4 ème méthode :
+3 ème méthode :
 On entre simplement le nom du fichier à charger dans la commande CLOAD en ajoutant le caractère ":"
 pour indiquer que le fichier se trouve sur la carte SD, l'Oric cherche le fichier et le charge en mémoire.
+
+4 ème méthode :
+On sélectionne sur l'écran Oled le programme à charger à l'aide du joystick, et on tape CLOAD"" sur l'Oric.
 
 Comment ça marche ?
 
@@ -48,7 +48,7 @@ On peut utiliser les fonctions siovantes :
 
 ">" pour changer de page
 
-"#", "#|" et "#[" (voir descroption plus bas)
+"#", "#|" et "#[" (voir descroption plus bas) #J ou #JA (sélection mode joystick)
 
 "/" et "/nom du répertoire" (pour changer de répertoire)
 
@@ -122,15 +122,28 @@ Méthode 4 (pour version avec joystick) :
 Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sélectionnez le fichier à charger en appuyant sur le
 haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
 Dans la liste, si on dirige le joystick vers la droite on obtiens un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
-le contenu du fichier correspondant.
+le contenu du fichier présélectionné (>).
 
 Utilisation du joystick :
+
 Pour lire la position du joystick il faut au préalable charger la routine joystick en tapant CLOAD"JOYSTICK"
 Ensuite il faut activer le mode joystick. Soit en appuyant sur le bouton (en haut à droite) pendant 1 à 2 secondes
 (joystick numérique uniquement), soit en envoyant la commande #J pour le joystick numérique ou #JA pour le joystick analogique
 exemple : CSAVE"#JA",A#500,E#501 (cette fonction active le joystick analogique).
-CALL#97AE appelle la routine joystick. On peut lire le résultat avec un PEEK(0)
-pour le joystick numérique les valeurs 
+Pour lire la position du joystick :
+CALL#97AE appelle la routine joystick. L'interface envoie alors un octet contenant la position du joystick. 
+On peut lire le résultat avec un PEEK(0)
+Pour le joystick numérique les valeurs sont : (Nord, Sud, Est, Ouest)
+N : 247  S : 251  O : 253 E : 254
+N/O : 252 N/E : 250 S/O : 249 S/E : 245
+Pour le joystick analogique :
+on a toujours 1 octet mais les axes X et Y sont envoyés une fois sur 2.
+Si l'octet reçu est inférieur à 127 alors la donnée correspond à l'axe X.
+Si l'octet reçu est supérieur à 127 alors la donnée correspond à l'axe Y
+Dans les deux cas (joystick analogique ou numérique), la valeur 127 correspond au bouton tir (bouton en bas à gauche de l'interface)
+La valeur 255 correspond au bouton de sélection du joystick (appui sur le champignon).
+Pour quitter le mode joystick on peut faire un POKE 768,63 ou appuyer sur le bouton en haut à droite.
+Tant que le mode joystick est actif il n'est pas possible de charger ou sauvegarder des programmes.
 
 Menu Configuration (SET) :
 
