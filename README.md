@@ -129,20 +129,28 @@ Utilisation du joystick :
 Pour lire la position du joystick il faut au préalable charger la routine joystick en tapant CLOAD"JOYSTICK"
 Ensuite il faut activer le mode joystick. Soit en appuyant sur le bouton (en haut à droite) pendant 1 à 2 secondes
 (joystick numérique uniquement), soit en envoyant la commande #J pour le joystick numérique ou #JA pour le joystick analogique
+
 exemple : CSAVE"#JA",A#500,E#501 (cette fonction active le joystick analogique).
+
 Pour lire la position du joystick :
+
 CALL#97AE appelle la routine joystick. L'interface envoie alors un octet contenant la position du joystick. 
 On peut lire le résultat avec un PEEK(0)
+
 Pour le joystick numérique les valeurs sont : (Nord, Sud, Est, Ouest)
+
 N : 247  S : 251  O : 253 E : 254
 N/O : 252 N/E : 250 S/O : 249 S/E : 245
+
 Pour le joystick analogique :
+
 on a toujours 1 octet mais les axes X et Y sont envoyés une fois sur 2.
 Si l'octet reçu est inférieur à 127 alors la donnée correspond à l'axe X.
 Si l'octet reçu est supérieur à 127 alors la donnée correspond à l'axe Y
 Dans les deux cas (joystick analogique ou numérique), la valeur 127 correspond au bouton tir (bouton en bas à gauche de l'interface)
 La valeur 255 correspond au bouton de sélection du joystick (appui sur le champignon).
 Pour quitter le mode joystick on peut faire un POKE 768,63 ou appuyer sur le bouton en haut à droite.
+
 Tant que le mode joystick est actif il n'est pas possible de charger ou sauvegarder des programmes.
 
 Menu Configuration (SET) :
