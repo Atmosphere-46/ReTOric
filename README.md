@@ -1,5 +1,8 @@
 ReTOric-mini
-Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD
+Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
+Une version complète ReTOric dispose des mêmes fonctions mais avec en plus un joystick qui permet
+de naviguer dans le directory via l'écran Oled et sélectionner le programme à charger. La position du joystick
+peut aussi être lue par l'Oric (analogique ou numérique) pour être intégré dans des jeux ou applications divers.
 
 
 Cette interface permet de lire des programmes au format TAP contenus dans une carte micro SD en utilisant le port cassette
@@ -14,13 +17,13 @@ Deux vitesses de transfert sont actuellement disponibles :
 1 - vitesse rapide classique du port cassette (environ 2400 bits par secondes)
 (la vitesse lente de l'Oric n'est pas gérée)
 
-2 - vitesse "F16", procédé inventé par Symoon sur le club CEO (mode lecture uniquement)
+2 - vitesse "F16", procédé inventé par Symoon membre du club CEO (mode lecture uniquement)
 qui accélère le débit jusqu'à 1.6 fois la vitesse rapide classique de l'Oric
 en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
 
-Pour lire un programme présent sur la carte SD, deux méthodes sont disponibles :
+Pour lire un programme présent sur la carte SD, trois méthodes sont disponibles :
 
 1 ère méthode :
 On utilise le directory, c'est la méthode la plus simple.
@@ -28,6 +31,9 @@ On utilise le directory, c'est la méthode la plus simple.
 2 ème méthode :
 On envoye une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
 
+4 ème méthode :
+On entre simplement le nom du fichier à charger dans la commande CLOAD en ajoutant le caractère ":"
+pour indiquer que le fichier se trouve sur la carte SD, l'Oric cherche le fichier et le charge en mémoire.
 
 Comment ça marche ?
 
@@ -103,6 +109,29 @@ la séquence suivante sera chargée dans la mémoire de l'Oric.
 Il est possible de choisir la séquence à lire en tapant CLOAD"nom du prg.TAPxx"
 "xx" étant le numéro de la séquence entre 1 et 20.
 
+Méthode 3 :
+On tape simplement CLOAD":nom.ext" puis touche Return.
+Exemple, CLOAD":PRG.TAP" va chaercher si le programme PRG.TAP existe sur la carte SD et va le charger en mémoire.
+L'extension est obligatoire. 
+Inconvénient : si le répertoire en cours contient beaucoup de fichiers, cela peut prendre du temps pour trouver le bon
+fichier à charger. Le système passe en revue les noms de fichiers du répertoire, il les présente à l'Oric et si le nom
+correspond à celui entré dans CLOAD alors le fichier complet sera envoyé à l'Oric.
+Attention : sur Oric 1 cette fonction efface le programme actuelement en mémoire même si il s'agit d'un bloc mémoire.
+
+Méthode 4 (pour version avec joystick) :
+Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sélectionnez le fichier à charger en appuyant sur le
+haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
+Dans la liste, si on dirige le joystick vers la droite on obtiens un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
+le contenu du fichier correspondant.
+
+Utilisation du joystick :
+Pour lire la position du joystick il faut au préalable charger la routine joystick en tapant CLOAD"JOYSTICK"
+Ensuite il faut activer le mode joystick. Soit en appuyant sur le bouton (en haut à droite) pendant 1 à 2 secondes
+(joystick numérique uniquement), soit en envoyant la commande #J pour le joystick numérique ou #JA pour le joystick analogique
+exemple : CSAVE"#JA",A#500,E#501 (cette fonction active le joystick analogique).
+CALL#97AE appelle la routine joystick. On peut lire le résultat avec un PEEK(0)
+pour le joystick numérique les valeurs 
+
 Menu Configuration (SET) :
 
 Pour modifier la configuration de l'interface vous pouvez accéder au menu de configuration
@@ -112,6 +141,7 @@ L'interface va charger le programme de configuration dans la mémoire de l'Oric 
 Il est possible de choisir la compatibilité Oric 1 (si vous utilisez un Oric 1 seul ce mode est compatible) ou Atmos,
 la vitesse de transfert, les bits de stop en vitesse F16 (certains jeux ne se chargent qu'avec 9 bits de stop),
 la langue (Français / Anglais) et le niveau de volume du haut parleur de l'Oric.
+Il est possible de changer l'adresse à laquelle est stocké la lecture du joystick (en page zéro de 0 à 9).
 
 Les options de Wifi et Bluetooth ne sont pas encore disponibles.
 
