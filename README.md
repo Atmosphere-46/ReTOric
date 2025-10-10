@@ -146,9 +146,13 @@ Pour le joystick analogique :
 
 on a toujours 1 octet mais les axes X et Y sont envoyés une fois sur 2.
 Si l'octet reçu est inférieur à 127 alors la donnée correspond à l'axe X.
+
 Si l'octet reçu est supérieur à 127 alors la donnée correspond à l'axe Y
+
 Dans les deux cas (joystick analogique ou numérique), la valeur 127 correspond au bouton tir (bouton en bas à gauche de l'interface)
+
 La valeur 255 correspond au bouton de sélection du joystick (appui sur le champignon).
+
 Pour quitter le mode joystick on peut faire un POKE 768,63 ou appuyer sur le bouton en haut à droite.
 
 Tant que le mode joystick est actif il n'est pas possible de charger ou sauvegarder des programmes.
