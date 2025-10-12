@@ -188,7 +188,5 @@ En cours de lecture si vous souhaitez arrêter le transfert il suffit de faire u
 Il peut arriver que l'ordre de chargement du directory soit perturbé par certaines actions précédentes, dans ce cas si vous 
 tapez CLOAD"DIR" l'Oric chargera bien le directory et non les fichiers annexes qui pourraient se présenter en premier.
 
-N'hésitez pas à me poser des questions si nécessaire, je vais mettre en ligne le firmware dès que j'aurai validé les tests du PCB.
-
 Je remercie les membres du club CEO qui m'ont aidée à mieux comprendre certaines spécifictés de L'Oric et fournis
 de précieuses informations pour l'élaboration des routines assembleur.
