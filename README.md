@@ -179,9 +179,8 @@ Il est fortement recommandé de ne pas sortir ou insérer la carte SD quand l'in
 
 Ne pas débrancher l'alimentation USB-C si l'intrface est en cours d'écriture ou de réception d'un programme.
 
-De même certaines actions sur les fichiers de la carte avec un oridinateur peuvent rendre illisible la carte par l'interface.
+De même certaines actions sur les fichiers de la carte avec un ordinateur peuvent rendre illisible la carte par l'interface.
 
-Copiez de préférence vos fichiers importants sur un autre support, le mode SPI de l'esp32 peut être capricieux par moments...
 
 Lors du démarrage de l'interface attendez la fin de l'initialisation avant d'utiliser CLOAD ou CSAVE sur l'Oric.
 En cours de lecture si vous souhaitez arrêter le transfert il suffit de faire un appuy court sur le bouton en haut à droite.
