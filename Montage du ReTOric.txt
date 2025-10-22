@@ -1,4 +1,4 @@
-Montage du RéTOric :
+Montage du RéTOric mini :
 
 Les composants se trouvent facilement sur le net, entre autres sur la très populaire plateforme américaine…
 Soudez les composants cms (8 résistances, 1 condensateur et 2 transistors).
@@ -39,3 +39,4 @@ envoie une impulsion pour marquer les périodes détectées par l'ESP32 et la GP
 
 Si vous utilisez la dernière version (RéTOric 1.1 ou RéTOric mini 1.2) un module régulateur de tension 5v est ajouté (AMS1117) avec une prise 
 d'alimentation Jack femelle 2.1 mm 9v (positif au centre)
+
