@@ -1,0 +1,41 @@
+Montage du RéTOric :
+
+Les composants se trouvent facilement sur le net, entre autres sur la très populaire plateforme américaine…
+Soudez les composants cms (8 résistances, 1 condensateur et 2 transistors).
+Si vous ne souhaitez pas utiliser la fonction de contrôle de volume sonore vous pouvez vous passer de R1, R2, 
+R3, R4, C1 et des 2 transistors.
+
+Pour plus de simplicité vous pouvez utiliser un cordon DIN-DIN mâle 7 broches que vous couperez en deux pour récupérer
+le câble avec son connecteur DIN 7 broches déjà monté, il ne restera plus qu'à dénuder les fils et les souder
+sur le PCB (broches J1 à J5).
+Sur le modèle HTGuoji les couleurs correspondantes constatées sont : 
+	marron (J1), vert (J2), blanc (J3), rouge (J4), noir (J5) et bleu (J6)
+Attention ces couleurs peuvent varier d'un modèle à l'autre, vérifiez la correspondance en vous aidant du schéma
+et d'un multimètre pour tester la continuité des fils aux bornes de votre cordon DIN 7 broches.
+
+Les broches J7 et J8 doivent être reliées ensemble, vous pouvez y souder un petit jump qui vous permettra de
+couper l'alimentation du lecteur de carte SD si celui-ci tire trop d'ampérage lors du flashage de la carte ESP32.
+En effet cette carte dispose d'un petit régulateur 3.3 volts qui peut s'avérer insuffisant lors de la programmation.
+
+La carte ESP32 Wroom 30 broches est une carte HW-454C qui dispose d'un afficheur Oled SSD1306 intégré. La carte dispose d'un
+convertisseur USB/série CH340, il n'y a donc pas besoin d'utiliser un module externe pour la programmer.
+Vous pouvez flasher le firmware avant ou après le montage sur le PCB en utilisant les outils habituels tels que ESPTOOL ou autres.
+
+Le module ampli-op porte la référence HW-164, c'est une carte disposant d'un LM358.
+Vous devez régler le potentiomètre bleu à l'aide d'un petit tournevis plat. Tournez dans le sens anti-horaire (vers la gauche)
+plusieurs tours jusqu'à la butée (25 tours de butée à butée), si vous faites 25 tours vous êtes sûr d'être en butée.
+Le module est soudé à l'envers sur le PCB (côté composants) de sorte que le potentiomètre bleu se retrouve la tête en bas 
+(l'empreinte se trouve côté soudure).
+
+Enfin le module lecteur micro SD est un petit module compatible SPI sans régulateur 3.3v, ce modèle ne dispose
+pas de ressort de maintient, la carte micro SD s'insère (inscription vers le haut) jusqu'à la butée, il n'y a pas de déclic.
+Ce module se monte (à l'endroit) sur la face composants du PCB (l'empreinte se trouve côté soudure).
+
+Au démarrage l'afficheur doit indiquer "ReTOric Bienvenue" puis la configuration en cours et enfin "Attente réception /Reste x Mo / carte SD prête"
+
+Pour les personnes qui souhaitent comprendre comment l'Oric envoie les bits sur le port K7 vous pouvez visualiser le signal en utilisant un
+analyseur numérique ou un oscilloscope, la GPIO04 est l'entrée (sortie K7 provenant de l'Oric), la GPIO02 est la sortie qui va vers l'Oric, la GPIO16
+envoie une impulsion pour marquer les périodes détectées par l'ESP32 et la GPIO17 indique les données prises en compte (8 bits + le bit de parité).
+
+Si vous utilisez la dernière version (RéTOric 1.1 ou RéTOric mini 1.2) un module régulateur de tension 5v est ajouté (AMS1117) avec une prise 
+d'alimentation Jack femelle 2.1 mm 9v (positif au centre)
