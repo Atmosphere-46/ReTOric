@@ -125,6 +125,7 @@ correspond à celui entré dans CLOAD alors le fichier complet sera envoyé à l
 Attention : sur Oric 1 cette fonction efface le programme actuelement en mémoire même si il s'agit d'un bloc mémoire.
 
 Méthode 4 (pour version avec joystick) :
+
 Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sélectionnez le fichier à charger en appuyant sur le
 haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
 Dans la liste, si on dirige le joystick vers la droite on obtiens un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
