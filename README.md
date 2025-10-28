@@ -115,6 +115,7 @@ Il est possible de choisir la séquence à lire en tapant CLOAD"nom du prg.TAPxx
 "xx" étant le numéro de la séquence entre 1 et 20.
 
 Méthode 3 :
+
 On tape simplement CLOAD":nom.ext" puis touche Return.
 Exemple, CLOAD":PRG.TAP" va chaercher si le programme PRG.TAP existe sur la carte SD et va le charger en mémoire.
 L'extension est obligatoire. 
