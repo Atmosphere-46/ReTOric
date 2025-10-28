@@ -131,7 +131,9 @@ haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le progr
 Dans la liste, si on dirige le joystick vers la droite on obtiens un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
 le contenu du fichier présélectionné (>).
 
-Eemarque : dans les modes 3 et 4 il n'est pas possible de spécifier le numéro de séquence à lire (pour les fichiers contenants plusieurs
+Remarque :
+
+dans les modes 3 et 4 il n'est pas possible de spécifier le numéro de séquence à lire (pour les fichiers contenants plusieurs
 séquences). La lecture se fera en séquentiel à partir de la première séquence avec une pause entre chaque séquence (attente CLOAD"" suivant).
 
 Utilisation du joystick :
