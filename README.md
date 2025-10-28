@@ -56,9 +56,11 @@ On peut utiliser les fonctions siovantes :
 
 Méthode 2 :
 
-On envooie en premier le nom du programme à charger avec CSAVE"?nom du prg"
+On envooie en premier le nom du programme à charger avec la commande "?" : exemple CSAVE"?nom du prg"
 
 Pour cela il est préférable de s'assurer que la mémoire de l'Oric soit vide, sinon le transfert de la commande sera plus long...
+
+Astuce : on peut utiliser la syntaxe CSAVE "commande",A500,E501 ce qui a pour effet d'envoyer la commande et seulement 2 octets
 
 On tape CSAVE"?nom du programme" et on valide. 
 
@@ -76,11 +78,14 @@ taper CSAVE"nom du prg" ou CSAVE"nom du prg.ext" (ext étant l'extension de votr
 si on ne précise pas d'extension, ".TAP" sera automatiquement ajouté au nom du programme.
 
 Le nom du programme doit comporter 8 lettres au maximum et ne doit pas commencer par les caractères suivants 
-
 (ces caractères sont utilisés pour les commandes) : "?", "#", ">", "+", "%" et "/"
 
+Si le nom du programme dépasse les 8 caractères, seuls les 8 premiers seront conservés pour le nom du fichier,
+les suivants seront conservés dans le nom du programme comme si on utilisait une cassette (16 caractères maxi).
+
 Si le fichier extiste déjà sur la carte SD vous devrez confirmer le remplacement
-en appuyant plus de 3 secondes sur le bouton en haut à droite de l'interafece.
+en appuyant plus de 3 secondes sur le bouton en haut à droite de l'interafece,
+au bout de 30 secondes sans confirmation la sauvergarde est annulée.
 
 Les commandes disponibles sont les suivantes :
 
@@ -123,6 +128,9 @@ Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sél
 haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
 Dans la liste, si on dirige le joystick vers la droite on obtiens un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
 le contenu du fichier présélectionné (>).
+
+Eemarque : dans les modes 3 et 4 il n'est pas possible de spécifier le numéro de séquence à lire (pour les fichiers contenants plusieurs
+séquences). La lecture se fera en séquentiel à partir de la première séquence avec une pause entre chaque séquence (attente CLOAD"" suivant).
 
 Utilisation du joystick :
 
