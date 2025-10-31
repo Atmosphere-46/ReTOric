@@ -4,6 +4,7 @@ Une version mini de ReTOric est aussi disponible, plus compacte, elle dispose de
 
 Cette interface permet de lire des programmes au format TAP contenus dans une carte micro SD en utilisant le port cassette
 et les fonctions CLOAD"".
+
 L'interface offre également la possibilité de sauvegarder les programmes de l'Oric sur la carte SD, au format TAP en utilisant
 simplement la fonction CSAVE"".
 
@@ -19,6 +20,29 @@ qui accélère le débit jusqu'à 1.6 fois la vitesse rapide classique de l'Oric
 en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
+
+Sauvegarde d'un fichier :
+
+Utilisez la fonction CSAVE ou STORE de la même façon q'un
+Pour Sauvegarder un programme présent dans la mémoire de l'Oric :
+
+taper CSAVE"nom du prg" ou CSAVE"nom du prg.ext" (ext étant l'extension de votre choix)
+
+si on ne précise pas d'extension, ".TAP" sera automatiquement ajouté au nom du programme.
+
+Le nom du programme doit comporter 8 lettres au maximum et ne doit pas commencer par les caractères suivants :
+(ces caractères sont utilisés pour les commandes) : "?", "#", ">", "+", "%" et "/"
+
+Si le nom du programme dépasse les 8 caractères, seuls les 8 premiers seront conservés pour le nom du fichier,
+les suivants seront conservés dans le nom du programme comme si on utilisait une cassette (16 caractères maxi).
+
+Si le fichier extiste déjà sur la carte SD vous devrez confirmer le remplacement
+en appuyant plus de 3 secondes sur le bouton en haut à droite de l'interafece,
+au bout de 30 secondes sans confirmation la sauvergarde est annulée.
+
+
+
+Lecture d'un fichier :
 
 Pour lire un programme présent sur la carte SD, quatre méthodes sont disponibles :
 
@@ -70,23 +94,8 @@ On tape ensuite CLOAD"" et l'interface va envoyer le programme sur le port casse
 
 * Une astuce, vous pouvez utiliser par exemple CSAVE"?nom du prg",A"adr",E"adr+1" si vous voulez
 racourcir le temps d'envoi de la commande. (adr peut être une adresse mémoire quelconque)
+
                   
-Pour Sauvegarder un programme présent dans la mémoire de l'Oric :
-
-taper CSAVE"nom du prg" ou CSAVE"nom du prg.ext" (ext étant l'extension de votre choix)
-
-si on ne précise pas d'extension, ".TAP" sera automatiquement ajouté au nom du programme.
-
-Le nom du programme doit comporter 8 lettres au maximum et ne doit pas commencer par les caractères suivants 
-(ces caractères sont utilisés pour les commandes) : "?", "#", ">", "+", "%" et "/"
-
-Si le nom du programme dépasse les 8 caractères, seuls les 8 premiers seront conservés pour le nom du fichier,
-les suivants seront conservés dans le nom du programme comme si on utilisait une cassette (16 caractères maxi).
-
-Si le fichier extiste déjà sur la carte SD vous devrez confirmer le remplacement
-en appuyant plus de 3 secondes sur le bouton en haut à droite de l'interafece,
-au bout de 30 secondes sans confirmation la sauvergarde est annulée.
-
 Les commandes disponibles sont les suivantes :
 
 "+" : Ajouter le programme sauvegardé à un fichier existant : CSAVE"+nom du prg"
@@ -107,6 +116,7 @@ Les commandes disponibles sont les suivantes :
 "/nom du répertoire" Changement de répertoire : CSAVE"/nom du repertoire"   (utiliser "/" pour revenir au répertoire racine)
 
 "/.." Revenir au répertoire antérieur.
+
 
 Il est possible de lire un fichier contenant plusieurs séquences :
 
