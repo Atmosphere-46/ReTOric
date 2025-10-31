@@ -21,9 +21,14 @@ en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
 
+Formatage de la carte micro SD, la carte doit être formatée en FAT32 avec le nom de volume : SD
+Il est possible que le système ne prène pas en charge les cartes au delà de 32 Go (pas encore testé).
+
 Sauvegarde d'un fichier :
 
-Utilisez la fonction CSAVE ou STORE de la même façon q'un
+Utilisez la fonction CSAVE ou STORE, il n'y a rien à faire sur l'interface, le fichier sera automatiquement
+reçu et stocké sur la carte SD.
+
 Pour Sauvegarder un programme présent dans la mémoire de l'Oric :
 
 taper CSAVE"nom du prg" ou CSAVE"nom du prg.ext" (ext étant l'extension de votre choix)
