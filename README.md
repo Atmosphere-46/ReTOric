@@ -100,19 +100,25 @@ Les commandes disponibles sont les suivantes :
 "#" Demande d'info sur un fichier TAP : CSAVE"#nom du prg.TAP" (affiche les séquences ainsi que leur taille en octets)
 (l'extension est obligatoire)
 
+"#J" active le mode Joystick numérique.
+
+"#JA" active le mode Joystick analogique.
+
 "/nom du répertoire" Changement de répertoire : CSAVE"/nom du repertoire"   (utiliser "/" pour revenir au répertoire racine)
+
+"/.." Revenir au répertoire antérieur.
 
 Il est possible de lire un fichier contenant plusieurs séquences :
 
 Pour cela ouvrez le fichier suivant la méthode 1 ou 2, si il contient plusieurs séquences l'interface va lire la première
 séquence et se mettra en PAUSE à la fin de la séquence.
-
-Si vous n'avez pas quitté la pause vous pouvez lire les séquences suivantes en tapant simplement CLOAD""
-
 la séquence suivante sera chargée dans la mémoire de l'Oric.
 
-Il est possible de choisir la séquence à lire en tapant CLOAD"nom du prg.TAPxx"
+Il est possible de choisir la séquence à lire en tapant CSAVE"?nom du prg.TAPxx"
 "xx" étant le numéro de la séquence entre 1 et 20.
+exemple : CSAVE"?NOM.TAP2" va sélectionner la seconde séquence du fichier NOM.TAP
+
+Il suffit alors de taper CLOAD"" pour débuter la lecture.
 
 Méthode 3 :
 
