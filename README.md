@@ -23,7 +23,7 @@ nécessaires au chargement correct de certains programmes.
 
 Formatage de la carte micro SD, la carte doit être formatée en FAT32 avec le nom de volume : SD
 
-Il est possible que le système ne prène pas en charge les cartes au delà de 32 Go (pas encore testé).
+Il est possible que le système ne prenne pas en charge les cartes au delà de 32 Go (pas encore testé).
 
 Sauvegarde d'un fichier :
 
@@ -42,9 +42,9 @@ Le nom du programme doit comporter 8 lettres au maximum et ne doit pas commencer
 Si le nom du programme dépasse les 8 caractères, seuls les 8 premiers seront conservés pour le nom du fichier,
 les suivants seront conservés dans le nom du programme comme si on utilisait une cassette (16 caractères maxi).
 
-Si le fichier extiste déjà sur la carte SD vous devrez confirmer le remplacement
-en appuyant plus de 3 secondes sur le bouton en haut à droite de l'interafece,
-au bout de 30 secondes sans confirmation la sauvergarde est annulée.
+Si le fichier existe déjà sur la carte SD vous devrez confirmer le remplacement
+en appuyant plus de 3 secondes sur le bouton en haut à droite de l'interface,
+au bout de 30 secondes sans confirmation la sauvegarde est annulée.
 
 
 
@@ -56,7 +56,7 @@ Pour lire un programme présent sur la carte SD, quatre méthodes sont disponibl
 On utilise le directory, c'est la méthode la plus simple.
 
 2 ème méthode :
-On envoye une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
+On envoie une commande vers l'interface pour sélectionner le programme que l'on souhaite charger.
 
 3 ème méthode :
 On entre simplement le nom du fichier à charger dans la commande CLOAD en ajoutant le caractère ":"
@@ -74,7 +74,7 @@ Pour charger un programme il suffit de taper le nom du programme (avec ou sans l
 
 Seuls les fichiers de 8 lettres maxi sont affichés.
 
-On peut utiliser les fonctions siovantes :
+On peut utiliser les fonctions suivantes :
 
 ">" pour changer de page
 
@@ -86,7 +86,7 @@ On peut utiliser les fonctions siovantes :
 
 Méthode 2 :
 
-On envooie en premier le nom du programme à charger avec la commande "?" : exemple CSAVE"?nom du prg"
+On envoie en premier le nom du programme à charger avec la commande "?" : exemple CSAVE"?nom du prg"
 
 Pour cela il est préférable de s'assurer que la mémoire de l'Oric soit vide, sinon le transfert de la commande sera plus long...
 
@@ -99,7 +99,7 @@ On tape CSAVE"?nom du programme" et on valide.
 On tape ensuite CLOAD"" et l'interface va envoyer le programme sur le port cassette.
 
 * Une astuce, vous pouvez utiliser par exemple CSAVE"?nom du prg",A"adr",E"adr+1" si vous voulez
-racourcir le temps d'envoi de la commande. (adr peut être une adresse mémoire quelconque)
+raccourcir le temps d'envoi de la commande. (adr peut être une adresse mémoire quelconque)
 
                   
 Les commandes disponibles sont les suivantes :
@@ -119,7 +119,7 @@ Les commandes disponibles sont les suivantes :
 
 "#JA" active le mode Joystick analogique.
 
-"/nom du répertoire" Changement de répertoire : CSAVE"/nom du repertoire"   (utiliser "/" pour revenir au répertoire racine)
+"/nom du répertoire" Changement de répertoire : CSAVE"/nom du répertoire"   (utiliser "/" pour revenir au répertoire racine)
 
 "/.." Revenir au répertoire antérieur.
 
@@ -139,18 +139,18 @@ Il suffit alors de taper CLOAD"" pour débuter la lecture.
 Méthode 3 :
 
 On tape simplement CLOAD":nom.ext" puis touche Return.
-Exemple, CLOAD":PRG.TAP" va chaercher si le programme PRG.TAP existe sur la carte SD et va le charger en mémoire.
+Exemple, CLOAD":PRG.TAP" va chercher si le programme PRG.TAP existe sur la carte SD et va le charger en mémoire.
 L'extension est obligatoire. 
 Inconvénient : si le répertoire en cours contient beaucoup de fichiers, cela peut prendre du temps pour trouver le bon
 fichier à charger. Le système passe en revue les noms de fichiers du répertoire, il les présente à l'Oric et si le nom
 correspond à celui entré dans CLOAD alors le fichier complet sera envoyé à l'Oric.
-Attention : sur Oric 1 cette fonction efface le programme actuelement en mémoire même si il s'agit d'un bloc mémoire.
+Attention : sur Oric 1 cette fonction efface le programme actuellement en mémoire même si il s'agit d'un bloc mémoire.
 
 Méthode 4 (pour version avec joystick) :
 
 Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sélectionnez le fichier à charger en appuyant sur le
 haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
-Dans la liste, si on dirige le joystick vers la droite on obtiens un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
+Dans la liste, si on dirige le joystick vers la droite on obtient un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
 le contenu du fichier présélectionné (>).
 
 Remarque :
@@ -211,7 +211,7 @@ Le bouton du bas permet de redémarrer l'interface (ne pas utiliser si l'interfa
 
 Il est fortement recommandé de ne pas sortir ou insérer la carte SD quand l'interface est sous tension.
 
-Ne pas débrancher l'alimentation USB-C si l'intrface est en cours d'écriture ou de réception d'un programme.
+Ne pas débrancher l'alimentation USB-C si l'interface est en cours d'écriture ou de réception d'un programme.
 
 De même certaines actions sur les fichiers de la carte avec un ordinateur peuvent rendre illisible la carte par l'interface.
 
@@ -221,5 +221,5 @@ En cours de lecture si vous souhaitez arrêter le transfert il suffit de faire u
 Il peut arriver que l'ordre de chargement du directory soit perturbé par certaines actions précédentes, dans ce cas si vous 
 tapez CLOAD"DIR" l'Oric chargera bien le directory et non les fichiers annexes qui pourraient se présenter en premier.
 
-Je remercie les membres du club CEO qui m'ont aidée à mieux comprendre certaines spécifictés de L'Oric et fournis
+Je remercie les membres du club CEO qui m'ont aidée à mieux comprendre certaines spécificités de L'Oric et fournis
 de précieuses informations pour l'élaboration des routines assembleur.
