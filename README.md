@@ -202,9 +202,17 @@ la vitesse de transfert, les bits de stop en vitesse F16 (certains jeux ne se ch
 la langue (Français / Anglais) et le niveau de volume du haut parleur de l'Oric.
 Il est possible de changer l'adresse à laquelle est stocké la lecture du joystick (en page zéro de 0 à 9).
 
-Les options de Wifi et Bluetooth ne sont pas encore disponibles.
+Les options de Wifi et Bluetooth ne sont pas encore disponibles. 
 
-Il est également possible de sélectionner ces paramètres à l'aide du bouton en haut à droite de l'interface.
+La version 1.2 du Firmware corrige divers bugs d'affichage du directory et prend en charge le Bluetooth en mode FR uniquement.
+Cette version fonctionne pour la carte RéTOric et aussi sa version mini (sans joystick).
+Le bluetooth est en essai, seul l'envoie de données en texte est opérationnel.
+CSAVE"B:" permet de transmettre le contenu d'un programme (seuls les caractères imprimables ASCII sont envoyés).
+CSAVE"B:nom" fait la même chose mais en envoyant le nom du prg en première ligne.
+
+Par exemple : 10 REM Hello -> CSAVE"B:" enverra Hello sur le terminal du récepteur en bluetooth.
+
+Il est également possible de sélectionner certains paramètres de configuration à l'aide du bouton en haut à droite de l'interface :
 
 (appuy court : Niveau du son, appuy plus long : Compatibilité, appuy plus de 5 secondes : Langue)
 Le bouton du bas permet de redémarrer l'interface (ne pas utiliser si l'interface est en train d'écrire sur la carte SD !)
