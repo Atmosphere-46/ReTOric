@@ -1,4 +1,4 @@
-ReTOric
+ReTOric Version 1.25
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini de ReTOric est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
@@ -83,6 +83,7 @@ On peut utiliser les fonctions suivantes :
 "/" et "/nom du répertoire" (pour changer de répertoire)
 
 "nom du prg.TAPxx"   (xx est le numéro de la séquence à lire) pour lire la séquence choisie
+"nom du prg.TAPA"  force le prg à s'exécuter en Auto (ou "M" si on ne veut pas qu'il s'exécute automatiquement)
 
 Méthode 2 :
 
@@ -112,7 +113,7 @@ Les commandes disponibles sont les suivantes :
 
 "#[" Créer un répertoire : CSAVE"#[nom du répertoire" (le répertoire sera créé dans le répertoire actuel)
 
-"#" Demande d'info sur un fichier TAP : CSAVE"#nom du prg.TAP" (affiche les séquences ainsi que leur taille en octets)
+"#" Demande d'info sur un fichier TAP : CSAVE"#nom du prg.TAP" (affiche les 20 premières séquences ainsi que leur nom et taille en octets)
 (l'extension est obligatoire)
 
 "#J" active le mode Joystick numérique.
@@ -124,17 +125,27 @@ Les commandes disponibles sont les suivantes :
 "/.." Revenir au répertoire antérieur.
 
 
-Il est possible de lire un fichier contenant plusieurs séquences :
+Il est possible de lire un fichier contenant plusieurs séquences (99 maxi):
 
 Pour cela ouvrez le fichier suivant la méthode 1 ou 2, si il contient plusieurs séquences l'interface va lire la première
 séquence et se mettra en PAUSE à la fin de la séquence.
 la séquence suivante sera chargée dans la mémoire de l'Oric.
 
 Il est possible de choisir la séquence à lire en tapant CSAVE"?nom du prg.TAPxx"
-"xx" étant le numéro de la séquence entre 1 et 20.
-exemple : CSAVE"?NOM.TAP2" va sélectionner la seconde séquence du fichier NOM.TAP
 
-Il suffit alors de taper CLOAD"" pour débuter la lecture.
+"xx" étant le numéro de la séquence entre 1 et 99.
+
+Si xx est suivi de P une pause sera imposée après chaque séquence, l'appui sur le joystick continue la lecture.
+
+Si xx est suivi de S alors les séquences seront lue l'une à la suite de l'autre.
+
+Il est possible de sauter des séquences pendant que l'Oric indique FOUND ""... en appuyant sur le bouton en haut à droite.
+
+exemple : CSAVE"?NOM.TAP2" va sélectionner la seconde séquence du fichier NOM.TAP et s'arrête.
+
+CSAVE"?NOM.TAP2S" va sélectionner la seconde séquence du fichier NOM.TAP et continue la lecture en mode séquentiel.
+
+On tape ensuite CLOAD"" pour débuter la lecture.
 
 Méthode 3 :
 
@@ -144,12 +155,18 @@ L'extension est obligatoire.
 Inconvénient : si le répertoire en cours contient beaucoup de fichiers, cela peut prendre du temps pour trouver le bon
 fichier à charger. Le système passe en revue les noms de fichiers du répertoire, il les présente à l'Oric et si le nom
 correspond à celui entré dans CLOAD alors le fichier complet sera envoyé à l'Oric.
+
+Les options de lecture de séquence n'est pas disponible dans ce mode.
+
 Attention : sur Oric 1 cette fonction efface le programme actuellement en mémoire même si il s'agit d'un bloc mémoire.
 
 Méthode 4 (pour version avec joystick) :
 
 Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sélectionnez le fichier à charger en appuyant sur le
 haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
+
+Les option de lecture de séquences sont disponibles en utilisant le joystick.
+
 Dans la liste, si on dirige le joystick vers la droite on obtient un mini éditeur de code hexadécimal, ce qui permet de voir rapidement 
 le contenu du fichier présélectionné (>).
 
