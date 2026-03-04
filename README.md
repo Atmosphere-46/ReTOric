@@ -26,7 +26,7 @@ firmware. Cette ROM est la ROM 1.1 classique dont les routines de lecture et éc
 
 Gain x3 environ sur la vitesse normale en downlaod.
 Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
-synchro $16 ont été réduits à 16 octets.
+synchro $16 ont été réduits à 16 octets. Le bit de parité est supprimé.
 
 La vitesse FSP est automatiquement reconnue dès la premier CLOAD ou CSAVE.
 
