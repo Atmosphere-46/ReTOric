@@ -24,9 +24,9 @@ nécessaires au chargement correct de certains programmes.
 3 - vitesse "FSP" Fast Speed, uniquement disponible si la ROM de l'Oric a été remplacée par la ROM 1.1+ disponible dans la section
 firmware. Cette ROM est la ROM 1.1 classique dont les routines de lecture et écriture K7 ont été modifiées.
 
-Gain x3 environ sur la vitesse normale en downlaod.
+Gain x3 environ sur la vitesse normale en download.
 Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
-synchro $16 ont été réduits à 16 octets. Le bit de parité est supprimé.
+synchro $16 ont été réduits à 16 octets. Le bit de parité est supprimé. Cette version rend l'Oric incompatible avec les cassettes.
 
 La vitesse FSP est automatiquement reconnue dès la premier CLOAD ou CSAVE.
 
