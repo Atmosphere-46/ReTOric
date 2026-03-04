@@ -10,7 +10,7 @@ simplement la fonction CSAVE"".
 
 Les données transitent par le port cassette comme si on utilisait un magnétophone à cassette.
 Les vitesses de transfert sont paramétrables dans le menu "SET". 
-Deux vitesses de transfert sont actuellement disponibles :
+Trois vitesses de transfert sont actuellement disponibles :
 
 1 - vitesse rapide classique du port cassette (environ 2400 bits par secondes)
 (la vitesse lente de l'Oric n'est pas gérée)
@@ -20,6 +20,15 @@ qui accélère le débit jusqu'à 1.6 fois la vitesse rapide classique de l'Oric
 en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
+
+3 - vitesse "FSP" Fast Speed, uniquement disponible si la ROM de l'Oric a été remplacée par la ROM 1.1+ disponible dans la section
+firmware. Cette ROM est la ROM 1.1 classique dont les routines de lecture et écriture K7 ont été modifiées.
+
+Gain x3 environ sur la vitesse normale en downlaod.
+Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
+synchro $16 ont été réduits à 16 octets.
+
+La vitesse FSP est automatiquement reconnue dès la premier CLOAD ou CSAVE.
 
 Formatage de la carte micro SD, la carte doit être formatée en FAT32 avec le nom de volume : SD
 
@@ -231,7 +240,18 @@ Par exemple : 10 REM Hello -> CSAVE"B:" enverra Hello sur le terminal du récept
 
 Il est également possible de sélectionner certains paramètres de configuration à l'aide du bouton en haut à droite de l'interface :
 
-(appuy court : Niveau du son, appuy plus long : Compatibilité, appuy plus de 5 secondes : Langue)
+appuy court : Niveau du son
+
++ 2 sec : Joystick
+  
++ 3 sec : Vitesse
+  
++ 4 sec : Compatibilité
+  
++ 6 sec : Langue
+  
++ 9 sec : RESET
+
 Le bouton du bas permet de redémarrer l'interface (ne pas utiliser si l'interface est en train d'écrire sur la carte SD !)
 
 Il est fortement recommandé de ne pas sortir ou insérer la carte SD quand l'interface est sous tension.
