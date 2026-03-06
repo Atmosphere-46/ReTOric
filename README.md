@@ -1,4 +1,4 @@
-ReTOric Version 1.30
+ReTOric Version 1.32
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini de ReTOric est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
@@ -21,12 +21,14 @@ en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
 
-3 - vitesse "FSP" Fast Speed, uniquement disponible si la ROM de l'Oric a été remplacée par la ROM 1.1+ disponible dans la section
+3 - vitesse "FSP" Fast Speed, uniquement disponible si la ROM de l'Oric a été remplacée par la ROM 1.1++ disponible dans la section
 firmware. Cette ROM est la ROM 1.1 classique dont les routines de lecture et écriture K7 ont été modifiées.
 
-Gain x3 environ sur la vitesse normale en download.  Le bit de parité est supprimé en download ainsi que la vérification Fast/Slow.
+Gain plus de 3x environ sur la vitesse normale en download.  
+Les bits de données sont inversés pour un meilleur randement. Le bit de parité est supprimé en download ainsi que la vérification Fast/Slow.
 Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
 synchro $16 ont été réduits à 16 octets. Cette version rend l'Oric incompatible avec les cassettes.
+ex : 3DFongus se charge en 1'47" en FSP contre 3'44" en F16 et 5'59" en normal.
 
 La vitesse FSP est automatiquement reconnue dès le premier CLOAD ou CSAVE.
 
