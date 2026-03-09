@@ -1,4 +1,4 @@
-ReTOric Version 1.32
+RéTOric Version 1.32
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini de ReTOric est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
@@ -78,7 +78,7 @@ On sélectionne sur l'écran Oled le programme à charger à l'aide du joystick,
 
 Comment ça marche ?
 
-Méthode 1 :
+Méthode 1 (via directory):
 
 Accès au directory : taper CLOAD"" ou CLOAD"DIR"  (attention cela écrase le prg présent en mémoire !)
 Pour charger un programme il suffit de taper le nom du programme (avec ou sans l'extension .TAP) et valider.
@@ -87,31 +87,41 @@ Seuls les fichiers de 8 lettres maxi sont affichés.
 
 On peut utiliser les fonctions suivantes :
 
-">" pour changer de page
+">" pour changer de page (page suivante)
 
-"#", "#|" et "#[" (voir descroption plus bas) #J ou #JA (sélection mode joystick)
+"#nomprg.ext" Info fichier
 
-"/" et "/nom du répertoire" (pour changer de répertoire)
+"#|nomprg.ext" Supprime fichier
+
+"#[nomrepertoire" créer répertoire
+
+#J ou #JA (sélection mode joystick)
+
+"/" Revenir au répertoire racine
+
+"/.." revenir au répertoire précédent
+
+"/nom du répertoire" Changer de répertoire
 
 "nom du prg.TAPxx"   (xx est le numéro de la séquence à lire) pour lire la séquence choisie
-"nom du prg.TAPA"  force le prg à s'exécuter en Auto (ou "M" si on ne veut pas qu'il s'exécute automatiquement)
 
-Méthode 2 :
+"nom du prg.TAPA"  force le prg à s'exécuter en Auto
+
+"nom du prg.TAPAM force le prg à ne pas s'exécuter automatiquement (non-Auto)
+
+Méthode 2 (envoi de commande):
 
 On envoie en premier le nom du programme à charger avec la commande "?" : exemple CSAVE"?nom du prg"
 
 Pour cela il est préférable de s'assurer que la mémoire de l'Oric soit vide, sinon le transfert de la commande sera plus long...
 
-Astuce : on peut utiliser la syntaxe CSAVE "commande",A500,E501 ce qui a pour effet d'envoyer la commande et seulement 2 octets
+Astuce : on peut utiliser la syntaxe CSAVE "commande",A0,E1 ce qui a pour effet d'envoyer la commande et seulement 1 octet
 
 On tape CSAVE"?nom du programme" et on valide. 
 
 (la fonction "?" indique à l'interface qu'on demande à charger un programme)
 
 On tape ensuite CLOAD"" et l'interface va envoyer le programme sur le port cassette.
-
-* Une astuce, vous pouvez utiliser par exemple CSAVE"?nom du prg",A"adr",E"adr+1" si vous voulez
-raccourcir le temps d'envoi de la commande. (adr peut être une adresse mémoire quelconque)
 
                   
 Les commandes disponibles sont les suivantes :
@@ -158,7 +168,7 @@ CSAVE"?NOM.TAP2S" va sélectionner la seconde séquence du fichier NOM.TAP et co
 
 On tape ensuite CLOAD"" pour débuter la lecture.
 
-Méthode 3 :
+Méthode 3 (CLOAD":nomPRG.ext") :
 
 On tape simplement CLOAD":nom.ext" puis touche Return.
 Exemple, CLOAD":PRG.TAP" va chercher si le programme PRG.TAP existe sur la carte SD et va le charger en mémoire.
@@ -171,7 +181,7 @@ Les options de lecture de séquence n'est pas disponible dans ce mode.
 
 Attention : sur Oric 1 cette fonction efface le programme actuellement en mémoire même si il s'agit d'un bloc mémoire.
 
-Méthode 4 (pour version avec joystick) :
+Méthode 4 (Sélection avec le Joystisk) (pour version avec joystick) :
 
 Dirigez le joystick vers le haut ou vers le bas pour accéder au directory. Sélectionnez le fichier à charger en appuyant sur le
 haut du joystick. Il suffit alors de taper CLOAD"" sur l'Oric pour lire le programme.
@@ -183,16 +193,16 @@ le contenu du fichier présélectionné (>).
 
 Remarque :
 
-dans les modes 3 et 4 il n'est pas possible de spécifier le numéro de séquence à lire (pour les fichiers contenants plusieurs
-séquences). La lecture se fera en séquentiel à partir de la première séquence avec une pause entre chaque séquence (attente CLOAD"" suivant).
+Il est possible de spécifier le numéro de séquence à lire une fois que vous avez sélectionné le fichier. 
+(Opt : Joystick vers le haut puis droit ou gauche pour choisir la séquence à lire et tapez CLOAD"" pour lire le prg).
 
 Utilisation du joystick :
 
 Pour lire la position du joystick il faut au préalable charger la routine joystick en tapant CLOAD"JOYSTICK"
 Ensuite il faut activer le mode joystick. Soit en appuyant sur le bouton (en haut à droite) pendant 1 à 2 secondes
-(joystick numérique uniquement), soit en envoyant la commande #J pour le joystick numérique ou #JA pour le joystick analogique
+(joystick numérique uniquement), soit en envoyant la commande #J pour le joystick numérique ou #JA pour le joystick analogique.
 
-exemple : CSAVE"#JA",A#500,E#501 (cette fonction active le joystick analogique).
+exemple : CSAVE"#JA",A0,E1 (cette fonction active le joystick analogique). (POKE 768,63 pour le désactiver.)
 
 Pour lire la position du joystick :
 
@@ -206,7 +216,7 @@ N/O : 252 N/E : 250 S/O : 249 S/E : 245
 
 Pour le joystick analogique :
 
-on a toujours 1 octet mais les axes X et Y sont envoyés une fois sur 2.
+on lit toujours 1 octet mais les axes X et Y sont envoyés une fois sur 2.
 Si l'octet reçu est inférieur à 127 alors la donnée correspond à l'axe X.
 
 Si l'octet reçu est supérieur à 127 alors la donnée correspond à l'axe Y
@@ -248,25 +258,28 @@ appuy court : Niveau du son
   
 + 3 sec : Vitesse
   
-+ 4 sec : Compatibilité
++ 4 sec : Compatibilité (Oric 1 ou Atmos)
   
-+ 6 sec : Langue
++ 6 sec : Langue (Français / Anglais)
   
-+ 9 sec : RESET
++ 9 sec : RESET (Réinitialise les paramètres d'origine et redémarre l'interface)
 
-Le bouton du bas permet de redémarrer l'interface (ne pas utiliser si l'interface est en train d'écrire sur la carte SD !)
+Le bouton du bas permet de redémarrer l'interface sans perdre les paramètres (ne pas utiliser si l'interface est en train d'écrire sur la carte SD !)
 
-Il est fortement recommandé de ne pas sortir ou insérer la carte SD quand l'interface est sous tension.
+Il est fortement recommandé de ne pas sortir ou insérer la carte SD quand l'interface est sous tension au risque de perdre les donnéess de la carte.
 
 Ne pas débrancher l'alimentation USB-C si l'interface est en cours d'écriture ou de réception d'un programme.
 
 De même certaines actions sur les fichiers de la carte avec un ordinateur peuvent rendre illisible la carte par l'interface.
 
+Le bouton Boot situé en bas de la prise USB-C sert à redémarrer l'interface sans perdre les paramètres.
 
 Lors du démarrage de l'interface attendez la fin de l'initialisation avant d'utiliser CLOAD ou CSAVE sur l'Oric.
 En cours de lecture si vous souhaitez arrêter le transfert il suffit de faire un appuy court sur le bouton en haut à droite.
 Il peut arriver que l'ordre de chargement du directory soit perturbé par certaines actions précédentes, dans ce cas si vous 
-tapez CLOAD"DIR" l'Oric chargera bien le directory et non les fichiers annexes qui pourraient se présenter en premier.
+tapez CLOAD"DIR" ou rebootez avec le bouton Boot, l'Oric chargera bien le directory et non les fichiers annexes qui pourraient se présenter en premier.
+
+Je ne peux en aucun cas être tenue responsable de toute dégradation quelle qu'elle soit, cette interface est un prototype expérimental non destiné à la commercialisation.
 
 Je remercie les membres du club CEO qui m'ont aidée à mieux comprendre certaines spécificités de L'Oric et fournis
 de précieuses informations pour l'élaboration des routines assembleur.
