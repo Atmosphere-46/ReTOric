@@ -1,6 +1,6 @@
 RéTOric Version 1.32
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
-Une version mini de ReTOric est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
+Une version mini est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
 Cette interface permet de lire des programmes au format TAP contenus dans une carte micro SD en utilisant le port cassette
 et les fonctions CLOAD"".
