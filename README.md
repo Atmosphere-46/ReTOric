@@ -1,4 +1,4 @@
-RéTOric Version 1.32
+RéTOric Version 1.34
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
@@ -21,16 +21,21 @@ en réduisant les périodes des bits 0 et 1.
 Une option permet d'ajuster au besoin le nombre de bits de stop (de 2 à 9 bits de stop)
 nécessaires au chargement correct de certains programmes.
 
-3 - vitesse "FSP" Fast Speed, uniquement disponible si la ROM de l'Oric a été remplacée par la ROM 1.1++ disponible dans la section
+3 - vitesse "FSP" Fast Speed, uniquement disponible si la ROM de l'Oric a été remplacée par la ROM 1.1.34 disponible dans la section
 firmware. Cette ROM est la ROM 1.1 classique dont les routines de lecture et écriture K7 ont été modifiées.
+La routine de vérification (CLOAD"prg",V) a été supprimée ainsi que le mode slow. La routine Joystick a été intégrée à la ROM adresse
+#E4F7. La lecture de l'état du joystick se fait désormais en #2F. Il est toujours possible d'utiliser la routine Joystick mais dans le 
+cas de la ROM_1.1.34 l'octet reçu est inversé. L'affichage de la barre de progression n'est pour l'instant pas opérationnelle, la 
+librairie utilisée pour la liaison avec le SSD1306 ralenti trop les données et le transfert ne serait pas assez fiable.
 
 Gain plus de 3x environ sur la vitesse normale en download.  
 Les bits de données sont inversés pour un meilleur randement. Le bit de parité est supprimé en download ainsi que la vérification Fast/Slow.
+Un RLE est instauré pour sauter l'envoi des octets identiques.
 Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
 synchro $16 ont été réduits à 16 octets. Cette version rend l'Oric incompatible avec les cassettes.
-ex : 3DFongus se charge en 1'47" en FSP contre 3'44" en F16 et 5'59" en normal.
+ex : 3DFongus se charge en 1'20" en FSP contre 3'44" en F16 et 5'59" en normal.
 
-La vitesse FSP est automatiquement reconnue dès le premier CLOAD ou CSAVE.
+La vitesse FSP est automatiquement reconnue dès le premier CLOAD ou CSAVE, ce qui rend l'interface compatible avec les ROM d'origine.
 
 Formatage de la carte micro SD, la carte doit être formatée en FAT32 avec le nom de volume : SD
 
@@ -172,14 +177,23 @@ Méthode 3 (CLOAD":nomPRG.ext") :
 
 On tape simplement CLOAD":nom.ext" puis touche Return.
 Exemple, CLOAD":PRG.TAP" va chercher si le programme PRG.TAP existe sur la carte SD et va le charger en mémoire.
-L'extension est obligatoire. 
-Inconvénient : si le répertoire en cours contient beaucoup de fichiers, cela peut prendre du temps pour trouver le bon
+L'extension est obligatoire (sauf en FSP). 
+Inconvénient (sauf FSP): si le répertoire en cours contient beaucoup de fichiers, cela peut prendre du temps pour trouver le bon
 fichier à charger. Le système passe en revue les noms de fichiers du répertoire, il les présente à l'Oric et si le nom
 correspond à celui entré dans CLOAD alors le fichier complet sera envoyé à l'Oric.
 
-Les options de lecture de séquence n'est pas disponible dans ce mode.
+Attention : sur Oric 1 cette fonction efface le programme actuellement en mémoire même si il s'agit d'un bloc mémoire (sauf FSP).
 
-Attention : sur Oric 1 cette fonction efface le programme actuellement en mémoire même si il s'agit d'un bloc mémoire.
+Les options de lecture de séquence n'est pas disponible dans ce mode sauf en FSP voir ci-dessous)
+
+NB : en FSP avec la ROM_1.1.34 ce module est beaucoup plus performant puisque la lecture du fichier demandé est directe
+et il est possible d'ajouter les commandes de lecture.
+
+exemple :  CLOAD":TETRIS" chargera le fichier TETRIS.TAP directement
+           CLOAD":3dFONGUS.TAPM" chargera le fichier 3DFONGUS.TAP sans le démarrage automatique
+           CLOAD":sargon.TAP2" chargera le fichier sargon.TAP à partir de la seconde séquence
+
+
 
 Méthode 4 (Sélection avec le Joystisk) (pour version avec joystick) :
 
