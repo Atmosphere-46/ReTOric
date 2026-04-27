@@ -1,4 +1,4 @@
-RéTOric Version 1.34
+RéTOric Version 1.342
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
@@ -25,8 +25,7 @@ nécessaires au chargement correct de certains programmes.
 firmware. Cette ROM est la ROM 1.1 classique dont les routines de lecture et écriture K7 ont été modifiées.
 La routine de vérification (CLOAD"prg",V) a été supprimée ainsi que le mode slow. La routine Joystick a été intégrée à la ROM adresse
 #E4F7. La lecture de l'état du joystick se fait désormais en #2F. Il est toujours possible d'utiliser la routine Joystick mais dans le 
-cas de la ROM_1.1.34 l'octet reçu est inversé. L'affichage de la barre de progression n'est pour l'instant pas opérationnelle, la 
-librairie utilisée pour la liaison avec le SSD1306 ralenti trop les données et le transfert ne serait pas assez fiable.
+cas de la ROM_1.1.34 l'octet reçu est inversé.
 
 Gain plus de 3x environ sur la vitesse normale en download.  
 Les bits de données sont inversés pour un meilleur randement. Le bit de parité est supprimé en download ainsi que la vérification Fast/Slow.
