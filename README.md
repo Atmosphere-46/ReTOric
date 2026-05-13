@@ -1,4 +1,4 @@
-RéTOric Version 1.342
+RéTOric Version 1.343
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
