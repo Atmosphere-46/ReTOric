@@ -34,7 +34,7 @@ Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les
 synchro $16 ont été réduits à 16 octets. Cette version rend l'Oric incompatible avec les cassettes.
 ex : 3DFongus se charge en 51" en FSP contre 3'44" en F16 et 5'59" en normal.
 
-Un écran en Hires se chrage en 6 secondes.
+Un écran en Hires se charge en 6 secondes.
 
 La vitesse FSP est automatiquement reconnue dès le premier CLOAD ou CSAVE, ce qui rend l'interface compatible avec les ROM d'origine.
 
