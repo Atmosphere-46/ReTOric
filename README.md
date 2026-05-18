@@ -27,7 +27,7 @@ La routine de vérification (CLOAD"prg",V) a été supprimée ainsi que le mode 
 #E4F7. La lecture de l'état du joystick se fait désormais en #2F. Il est toujours possible d'utiliser la routine Joystick mais dans le 
 cas de la ROM_1.1.34 l'octet reçu est inversé.
 
-Gain plus de 3x environ sur la vitesse normale en download.  
+Gain 6x environ sur la vitesse normale en download.  
 Les bits de données sont inversés pour un meilleur randement. Le bit de parité est supprimé en download ainsi que la vérification Fast/Slow.
 Un RLE est instauré pour sauter l'envoi des octets identiques.
 Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
