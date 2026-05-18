@@ -1,4 +1,4 @@
-RéTOric Version 1.344
+RéTOric Version 1.345
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD.
 Une version mini est aussi disponible, plus compacte, elle dispose des mêmes fonctions mais sans le joystick.
 
@@ -32,7 +32,9 @@ Les bits de données sont inversés pour un meilleur randement. Le bit de parit�
 Un RLE est instauré pour sauter l'envoi des octets identiques.
 Le timer a été modifié en Upload qui passe de 208 microsecondes à 180 et les 259 octets de
 synchro $16 ont été réduits à 16 octets. Cette version rend l'Oric incompatible avec les cassettes.
-ex : 3DFongus se charge en 1'20" en FSP contre 3'44" en F16 et 5'59" en normal.
+ex : 3DFongus se charge en 51" en FSP contre 3'44" en F16 et 5'59" en normal.
+
+Un écran en Hires se chrage en 6 secondes.
 
 La vitesse FSP est automatiquement reconnue dès le premier CLOAD ou CSAVE, ce qui rend l'interface compatible avec les ROM d'origine.
 
