@@ -1,0 +1,7 @@
+ROM 1.1.344 Bis : seuil de détection des bits 1 ou 0 fixé à 135 (255-135 = 120us devrait être plus cohérent que la version 1.1.344)
+
+ROM 1.1.344 : seuil de détection des bits 1 ou 0 fixé à 125 (problèmes rencontrés lorsque l'Oric est encore froid)
+
+Bit 1 : 48 + 48 = 96 microsecondes entre deux fronts montants
+
+Bit 0 : 70 + 70 = 140 microsecondes entre deux fronts montants
