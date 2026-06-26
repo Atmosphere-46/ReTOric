@@ -10,4 +10,4 @@ Bit 1 : 48 + 48 = 96 microsecondes entre deux fronts montants
 
 Bit 0 : 70 + 70 = 140 microsecondes entre deux fronts montants
 
-RLE : Si la longueur du bit de start est suppérieur à 175µs alors l'octet est identique à l'octet prcédent.
+RLE : Si la longueur du bit de start est suppérieure à 175µs alors l'octet est identique à l'octet prcédent.
