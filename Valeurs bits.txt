@@ -1,7 +1,13 @@
-ROM 1.1.344 Bis : seuil de détection des bits 1 ou 0 fixé à 135 (255-135 = 120us devrait être plus cohérent que la version 1.1.344)
+ROM 1.1.344 Bis : seuil de détection des bits 1 ou 0 fixé à 135 (255-135 = 120µs devrait être plus cohérent que la version 1.1.344)
 
 ROM 1.1.344 : seuil de détection des bits 1 ou 0 fixé à 125 (problèmes rencontrés lorsque l'Oric est encore froid)
+
+NB : après de nomreux essais, il s'avère que les problèmes rencontrés au démarrage à froid de l'Oric sont dus à la température interne de l'Oric. Au bout de 1 à 2 minutes de fonctionnement
+de l'Oric les erreurs de communication disparaissent, ce qui me porte à croire que le VIA6522 ou les composants qui sont autour comme le LM358 manquent de précision à froid, rendant la mesure
+des transitions par le Timer T2 hasardeuses.
 
 Bit 1 : 48 + 48 = 96 microsecondes entre deux fronts montants
 
 Bit 0 : 70 + 70 = 140 microsecondes entre deux fronts montants
+
+RLE : Si la longueur du bit de start est suppérieur à 175µs alors l'octet est identique à l'octet prcédent.
