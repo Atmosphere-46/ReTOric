@@ -5,7 +5,9 @@ Par Claire Bertrand.
 
 Avertissement : je suis totalement autodidacte et ce code a été réalisé pour le plaisir, garanti non-conforme aux règles de l'art
 mais 100% fonctionnel sur ma machine ;-)
-Je vous prie donc d'être indulgent (très) sur la façon et la manière dont il a été écrit. Je n'ai plus le courage de le mettre au propre.
+Je vous prie donc d'être indulgent (très) sur la manière dont il a été écrit. A l'origine je souhaitais simplement décoder le protocole de communication
+de l'Oric car je n'avais pas de documentation sur le sujet. Au fil du temps j'ai ajouté des fonctions de lecture et sauvegarde c'est pourquoi la structure
+de base n'est pas idéale. Je n'ai plus le courage de le mettre au propre.
 License libre.
 
 Cette interface permet de lire des programmes au format TAP contenus dans une carte micro SD en utilisant le port cassette
