@@ -1,7 +1,7 @@
 /*
 ReTOric
 Interface de communication avec Oric Atmos / Oric 1, sauvegarde / lecture des fichiers sur carte SD
-Par Claire Bertrand.
+Par Claire - Atmosphère.
 
 Avertissement : je suis totalement autodidacte et ce code a été réalisé pour le plaisir, garanti non-conforme aux règles de l'art
 mais 100% fonctionnel sur ma machine ;-)
