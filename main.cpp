@@ -976,20 +976,10 @@ String findNameInBuffer(const uint8_t *buffer, size_t bufferSize)
     if (BlueT == true) {
         SerialBT.begin("Oric");
         delay(1000);
-        // PS4.begin();
         Serial.print("Adresse MAC : ");
         printDeviceAddress();
         Serial.println("");
-        // PS4.begin("41:42:4E:41:B6:44");
-        // delay(1000);
-        // Serial.println("Adresse MAC : ");
-        // printDeviceAddress();
-        // Serial.println("");
-        // if (PS4.isConnected()) {
-        //     Serial.println("PS4 connectée ");
-        // }
     } else {
-        // PS4.end();
         SerialBT.end();
     }
     delay(1000);
@@ -1630,15 +1620,10 @@ void setup()    // ---------------------- SETUP --------------------------------
         display.println("SD card ready");
     }
     if (BlueT) {
-    //     // PS4.begin("41:42:4E:41:B6:44");
-    //     PS4.begin();
         Serial.println("Adresse MAC : ");
         printDeviceAddress();
         Serial.println("");
     //     delay(1000);
-    //     if (PS4.isConnected()) {
-    //         Serial.println("PS4 connectée ");
-    //     }
     }
     display.display();     
     delay(1000);
